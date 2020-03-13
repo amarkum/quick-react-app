@@ -3,9 +3,9 @@ import { Route } from 'react-router-dom';
 import { CssBaseline, withStyles, } from '@material-ui/core';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
-import Profiling from './pages/Profiling';
-import MediaCapture from './pages/MediaCapture';
+import DataProfiling from './pages/DataProfiling';
 import RuleEngine from './pages/RuleEngine';
+import CoRelation from './pages/CoRelation';
 
 const styles = theme => ({
   main: {
@@ -26,9 +26,9 @@ const App = ({ classes }) => (
          */
       }
       <Route exact path="/" component={Home} />
-      <Route exact path="/profiling" component={Profiling} />
-      <Route exact path="/media" component={MediaCapture} />
-      <Route exact path="/rules" component={RuleEngine} />
+      <Route exact path="/profiling" component={DataProfiling} />
+      <Route exact path="/rule" component={RuleEngine} />
+      <Route exact path="/corelation" component={CoRelation} />
     </main>
   </Fragment>
 );

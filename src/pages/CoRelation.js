@@ -3,7 +3,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import axios from 'axios';
 import React from 'react';
 
-class Profiling extends React.Component {
+class CoRelation extends React.Component {
     // State will apply to the posts object which is set to loading by default
     state = {
         posts: [],
@@ -40,7 +40,6 @@ class Profiling extends React.Component {
                                     <h3>{username}</h3>
                                     <h4>{email}</h4>
                                     <Button variant="contained" color="primary">View</Button>
-                                    <h4>Random number: {Math.random()}</h4>
                                     <hr />
                                 </div>
                             );
@@ -58,4 +57,4 @@ class Profiling extends React.Component {
     }
 }
 
-export default Profiling;
+export default CoRelation;

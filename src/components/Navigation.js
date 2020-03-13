@@ -20,8 +20,8 @@ const Navigation = ({ classes }) => (
       }
       <Button color="inherit" component={Link} to="/">Home</Button>
       <Button color="inherit" component={Link} to="/profiling">Profiling</Button>
-      <Button color="inherit" component={Link} to="/media">Media Capture</Button>
-      <Button color="inherit" component={Link} to="/rules">Rule Engine</Button>
+      <Button color="inherit" component={Link} to="/rule">Rule Engine</Button>
+      <Button color="inherit" component={Link} to="/corelation">CoRelation</Button>
       <div className={classes.flex} />
     </Toolbar>
   </AppBar>

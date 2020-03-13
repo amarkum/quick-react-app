@@ -13,9 +13,11 @@ import React, { Component, Fragment } from 'react';
 class MediaCapture extends Component {
 
     state = {
-        text: null,
-        csvRows: []
-    };
+        keys: [],
+        csvRows: [],
+        head: {
+        }
+    }
 
     // Render Component
     render() {
@@ -27,12 +29,12 @@ class MediaCapture extends Component {
         const handleFileRead = (e) => {
             const content = fileReader.result;
 
-            const results = Papa.parse(content, { header: true }) // object with { data, errors, meta }
+            const results = Papa.parse(content, { header: true, dynamicTyping: true }) // object with { data, errors, meta }
             const rows = results.data // array of objects
-
-            console.log(rows);
             this.setState({
-                csvRows: rows
+                csvRows: rows,
+                keys: Object.keys(rows[0]),
+                datasample: Object.keys(rows[1])
             });
         }
 
@@ -48,8 +50,17 @@ class MediaCapture extends Component {
         return (
             <Fragment>
                 <div>
-                    <br /> <br />
-                    <Typography variant="h7"> Upload a File&nbsp;&nbsp;</Typography>
+                    <br /> 
+                    <Typography variant="h5">PROJECTS&nbsp;&nbsp;</Typography>
+                    <Button variant="contained" color="primary">CREATE</Button> &nbsp; &nbsp;
+                    <Button variant="contained" color="primary">OPEN</Button>
+                    <br/>
+                    <br/>
+                   
+                    <hr/>
+                    <br/> 
+                    
+                    <Typography variant="h7">Please Upload a CSV or Excel Workbook&nbsp;&nbsp;</Typography>
                     <input style={{ display: 'none' }}
                         accept=".csv,.xlsx"
                         id="contained-button-file"
@@ -57,30 +68,40 @@ class MediaCapture extends Component {
                         onChange={e => handleFileChosen(e.target.files[0])}
                     />
                     <label htmlFor="contained-button-file">
-                        <Button variant="contained" color="primary" component="span">Upload</Button>
+                        <br/><Button variant="contained" color="primary" component="span">Upload</Button>
                     </label>
+                    &nbsp;
+                    &nbsp;
+                    <br/> <br/>
+
+                    <hr/><br/>
+                    <Button variant="contained" color="primary">GENERATE REPORT</Button>
                 </div>
-                <h5>{this.state.text}</h5>
+                <br/>
 
                 <TableContainer component={Paper}>
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell align="left">Name</TableCell>
-                                <TableCell align="right">Age&nbsp;</TableCell>
-                                <TableCell align="right">Place&nbsp;</TableCell>
+                                {
+                                    this.state.keys.map(col => (
+                                        <TableCell align="left">{col.toUpperCase()}</TableCell>)
+                                    )
+                                }
+
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.csvRows.map(row => (
-                                <TableRow key={row.name}>
-                                    <TableCell component="th" scope="row">
-                                        {row.name}
-                                    </TableCell>
-                                    <TableCell align="right">{row.age}</TableCell>
-                                    <TableCell align="right">{row.place}</TableCell>
-                                </TableRow>
-                            ))}
+                            {
+                                this.state.csvRows.map(row => (
+                                    <TableRow>
+                                        {
+                                            this.state.keys.map(col => (
+                                                <TableCell align="left">{row[col]}</TableCell>))
+                                        }
+                                    </TableRow>
+                                ))
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -88,5 +109,4 @@ class MediaCapture extends Component {
         );
     }
 }
-
 export default (MediaCapture);
