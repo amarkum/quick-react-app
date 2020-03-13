@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Papa from 'papaparse';
 import React, { Component, Fragment } from 'react';
 
-class MediaCapture extends Component {
+class DataProfiling extends Component {
 
     state = {
         keys: [],
@@ -109,4 +109,4 @@ class MediaCapture extends Component {
         );
     }
 }
-export default (MediaCapture);
+export default (DataProfiling);
