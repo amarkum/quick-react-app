@@ -11,12 +11,11 @@ import Papa from 'papaparse';
 import React, { Component, Fragment } from 'react';
 
 class DataProfiling extends Component {
-
     state = {
         keys: [],
         csvRows: [],
-        head: {
-        }
+        head: {},
+        uploaded : false
     }
 
     // Render Component
@@ -34,7 +33,8 @@ class DataProfiling extends Component {
             this.setState({
                 csvRows: rows,
                 keys: Object.keys(rows[0]),
-                datasample: Object.keys(rows[1])
+                datasample: Object.keys(rows[1]),
+                uploaded : true
             });
         }
 
@@ -54,12 +54,9 @@ class DataProfiling extends Component {
                     <Typography variant="h5">PROJECTS&nbsp;&nbsp;</Typography>
                     <Button variant="contained" color="primary">CREATE</Button> &nbsp; &nbsp;
                     <Button variant="contained" color="primary">OPEN</Button>
-                    <br/>
-                    <br/>
-                   
+                    <br/><br/>
                     <hr/>
                     <br/> 
-                    
                     <Typography variant="h7">Please Upload a CSV or Excel Workbook&nbsp;&nbsp;</Typography>
                     <input style={{ display: 'none' }}
                         accept=".csv,.xlsx"
@@ -67,13 +64,23 @@ class DataProfiling extends Component {
                         type="file"
                         onChange={e => handleFileChosen(e.target.files[0])}
                     />
+                   
                     <label htmlFor="contained-button-file">
-                        <br/><Button variant="contained" color="primary" component="span">Upload</Button>
+                        <br/>
+                        {
+                        !this.state.uploaded ? (
+                        <Button variant="contained" color="primary" component="span"> Upload</Button>
+                        )
+                         :(
+                         <Button variant="contained" component="span" style={{backgroundColor:'#3f51b5', color: 'white'}}> RELOAD </Button>
+                        ) 
+                         }
                     </label>
+                
+
                     &nbsp;
                     &nbsp;
                     <br/> <br/>
-
                     <hr/><br/>
                     <Button variant="contained" color="primary">GENERATE REPORT</Button>
                 </div>
@@ -85,7 +92,7 @@ class DataProfiling extends Component {
                             <TableRow>
                                 {
                                     this.state.keys.map(col => (
-                                        <TableCell align="left">{col.toUpperCase()}</TableCell>)
+                                        <TableCell align="left" style={{backgroundColor:'#3f51b5', color: 'white',}}>{col.toUpperCase().replace(/[^a-zA-Z]/g, ' ',/\s/g, ' ',/[0-9]/g,' ')}</TableCell>)
                                     )
                                 }
 
@@ -97,7 +104,7 @@ class DataProfiling extends Component {
                                     <TableRow>
                                         {
                                             this.state.keys.map(col => (
-                                                <TableCell align="left">{row[col]}</TableCell>))
+                                                <TableCell align="left" >{row[col]}</TableCell>))
                                         }
                                     </TableRow>
                                 ))
