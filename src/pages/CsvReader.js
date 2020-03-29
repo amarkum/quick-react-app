@@ -67,7 +67,7 @@ class CsvReader extends Component {
                                     <Button style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" component="span"> Upload&nbsp;<PublishIcon /></Button>
                                 )
                                     : (
-                                        <Button variant="contained" component="span" style={{ ackgroundColor: '#000000', color: 'white' }}> RELOAD&nbsp; <ReplayIcon /></Button>
+                                        <Button variant="contained" component="span" style={{ backgroundColor: '#000000', color: 'white' }}> RELOAD&nbsp; <ReplayIcon /></Button>
                                     )
                             }
                         </label>
