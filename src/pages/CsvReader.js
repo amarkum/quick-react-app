@@ -21,17 +21,11 @@ class CsvReader extends Component {
         uploaded: false
     }
 
-    // Render Component
     render() {
-
-        // declare a new fileReader
         let fileReader;
-
-        //helper method which will set state the csv content to the state
         const handleFileRead = (e) => {
             const content = fileReader.result;
-
-            const results = Papa.parse(content, { header: true, dynamicTyping: true }) // object with { data, errors, meta }
+            const results = Papa.parse(content, { header: true, dynamicTyping: true }) 
             const rows = results.data // array of objects
             this.setState({
                 csvRows: rows,
