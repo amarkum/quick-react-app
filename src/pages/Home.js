@@ -2,6 +2,7 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import React, { Component } from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import Divider from '@material-ui/core/Divider';
 
 class Home extends Component {
   render() {
@@ -26,10 +27,12 @@ class Home extends Component {
         But worry not, with this react-app utility, you can perform some reduntant task quickly, process some files and keep it going.
       <br />If you want to add up any feature, send a Pull Request to the GitHub Repository.
       </Typography>
-      <br/><br/>
-      <Typography style={{ font: "100 20px/29px Roboto,sans-serif" }} >
+      <br/><br/> <br/><br/><br/><br/>
+      <Divider light />
+      <Typography style={{ font: "100 15px/30px Roboto,sans-serif" }} >
       Made with Love by Amar Kumar (c) Copyright 2020
       </Typography>
+      <Divider light />
       </div>
     )
   }
