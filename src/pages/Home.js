@@ -26,6 +26,10 @@ class Home extends Component {
         But worry not, with this react-app utility, you can perform some reduntant task quickly, process some files and keep it going.
       <br />If you want to add up any feature, send a Pull Request to the GitHub Repository.
       </Typography>
+      <br/><br/>
+      <Typography style={{ font: "100 20px/29px Roboto,sans-serif" }} >
+      Made with Love by Amar Kumar (c) Copyright 2020
+      </Typography>
       </div>
     )
   }
