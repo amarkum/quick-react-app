@@ -1,33 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Live Site
+https://react-utility.netlify.com/
 
-In the project directory, you can run:
+## React App Utility
+A Utility developed in React JS.
+With this react-app utility, you can perform some reduntant task quickly, process some files and keep it going.
+If you want to add up any feature, send a Pull Request to the GitHub Repository.
 
-### `npm start`
+## Build with <3 with @Material UI
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### Required Libraries
-
-1. Material UI
-`npm install @material-ui/core`
-
-2. Material Icons
-`npm install @material-ui/icons`
-
-3. Axios
-`npm install axios`
-
-4. Papaparse
-`npm install papaparse`
+## Features
+## 1.CSV Reader
+It accepts Input from the User's Machine, Parse it using PapaParser and displays the output in the Material UI Table
 
 
-### UI CheatSheet
-
-1. To add space in the Text
-`<h1> Upload a File&nbsp;&nbsp;</h1>`
+Please feel free to add-up features and send a Pull Request.
