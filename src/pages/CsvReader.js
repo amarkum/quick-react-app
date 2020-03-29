@@ -52,7 +52,7 @@ class CsvReader extends Component {
         return (
             <Fragment>
                 <div>
-                    <Typography id="filled-basic" style={{ width: "50%", font: "120 22px/20px Roboto,sans-serif" }}
+                    <Typography id="filled-basic" style={{ font: "120 22px/20px Roboto,sans-serif" }}
                     >Please Upload a CSV file&nbsp;&nbsp;&nbsp;&nbsp;
                                             <input style={{ display: 'none' }}
                             accept=".csv,.xlsx"
@@ -67,7 +67,7 @@ class CsvReader extends Component {
                                     <Button style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" component="span"> Upload&nbsp;<PublishIcon /></Button>
                                 )
                                     : (
-                                        <Button variant="contained" component="span" style={{ backgroundColor: '#000000', color: 'white' }}> RELOAD&nbsp; <ReplayIcon /></Button>
+                                        <Button variant="contained" component="span" style={{ ackgroundColor: '#000000', color: 'white' }}> RELOAD&nbsp; <ReplayIcon /></Button>
                                     )
                             }
                         </label>
@@ -82,7 +82,7 @@ class CsvReader extends Component {
                             <TableRow>
                                 {
                                     this.state.keys.map(col => (
-                                        <TableCell align="left" style={{ backgroundColor: '#000030', color: 'white', }}>{col.toUpperCase().replace(/[^a-zA-Z]/g, ' ', /\s/g, ' ', /[0-9]/g, ' ')}</TableCell>)
+                                        <TableCell align="left" style={{ backgroundColor: '#000000', color: 'white', }}>{col.toUpperCase().replace(/[^a-zA-Z]/g, ' ', /\s/g, ' ', /[0-9]/g, ' ')}</TableCell>)
                                     )
                                 }
                             </TableRow>

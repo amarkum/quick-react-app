@@ -16,10 +16,9 @@ class Home extends Component {
         <Typography style={{ font: "100 22px/20px Roboto,sans-serif" }} >
           Ever wondered in office, and thought what if you could have a tool which solves your daily problem?
       </Typography><br />
-        <Button
-          href="https://github.com/amarkum/react-utility"
-          style={{ backgroundColor: '#000000', color: 'white', width: "10%" }}>
-          GitHub &nbsp;<GitHubIcon />
+       
+      <Button href="https://github.com/amarkum/react-utility" style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" component="span"> 
+      GitHub &nbsp;<GitHubIcon />
         </Button>
         <br /> <br />
         <Typography style={{ font: "100 20px/29px Roboto,sans-serif" }} >
