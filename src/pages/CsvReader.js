@@ -8,14 +8,17 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Papa from 'papaparse';
+import Divider from '@material-ui/core/Divider';
 import React, { Component, Fragment } from 'react';
+import PublishIcon from '@material-ui/icons/Publish';
+import ReplayIcon from '@material-ui/icons/Replay';
 
-class DataProfiling extends Component {
+class CsvReader extends Component {
     state = {
         keys: [],
         csvRows: [],
         head: {},
-        uploaded : false
+        uploaded: false
     }
 
     // Render Component
@@ -34,7 +37,7 @@ class DataProfiling extends Component {
                 csvRows: rows,
                 keys: Object.keys(rows[0]),
                 datasample: Object.keys(rows[1]),
-                uploaded : true
+                uploaded: true
             });
         }
 
@@ -46,45 +49,32 @@ class DataProfiling extends Component {
             //read the file as text
             fileReader.readAsText(file);
         }
-
         return (
             <Fragment>
                 <div>
-                    <br /> 
-                    <Typography variant="h5">PROJECTS&nbsp;&nbsp;</Typography>
-                    <Button variant="contained" color="primary">CREATE</Button> &nbsp; &nbsp;
-                    <Button variant="contained" color="primary">OPEN</Button>
-                    <br/><br/>
-                    <hr/>
-                    <br/> 
-                    <Typography variant="h7">Please Upload a CSV or Excel Workbook&nbsp;&nbsp;</Typography>
-                    <input style={{ display: 'none' }}
-                        accept=".csv,.xlsx"
-                        id="contained-button-file"
-                        type="file"
-                        onChange={e => handleFileChosen(e.target.files[0])}
-                    />
-                   
-                    <label htmlFor="contained-button-file">
-                        <br/>
-                        {
-                        !this.state.uploaded ? (
-                        <Button variant="contained" color="primary" component="span"> Upload</Button>
-                        )
-                         :(
-                         <Button variant="contained" component="span" style={{backgroundColor:'#3f51b5', color: 'white'}}> RELOAD </Button>
-                        ) 
-                         }
-                    </label>
-                
+                    <Typography id="filled-basic" style={{ width: "50%", font: "120 22px/20px Roboto,sans-serif" }}
+                    >Please Upload a CSV file&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input style={{ display: 'none' }}
+                            accept=".csv,.xlsx"
+                            id="contained-button-file"
+                            type="file"
+                            onChange={e => handleFileChosen(e.target.files[0])}
+                        />
 
-                    &nbsp;
-                    &nbsp;
-                    <br/> <br/>
-                    <hr/><br/>
-                    <Button variant="contained" color="primary">GENERATE REPORT</Button>
+                        <label htmlFor="contained-button-file">
+                            {
+                                !this.state.uploaded ? (
+                                    <Button style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" component="span"> Upload&nbsp;<PublishIcon /></Button>
+                                )
+                                    : (
+                                        <Button variant="contained" component="span" style={{ backgroundColor: '#000000', color: 'white' }}> RELOAD&nbsp; <ReplayIcon /></Button>
+                                    )
+                            }
+                        </label>
+                    </Typography><br />
+                    <Divider light />
                 </div>
-                <br/>
+                <br />
 
                 <TableContainer component={Paper}>
                     <Table aria-label="simple table">
@@ -92,10 +82,9 @@ class DataProfiling extends Component {
                             <TableRow>
                                 {
                                     this.state.keys.map(col => (
-                                        <TableCell align="left" style={{backgroundColor:'#3f51b5', color: 'white',}}>{col.toUpperCase().replace(/[^a-zA-Z]/g, ' ',/\s/g, ' ',/[0-9]/g,' ')}</TableCell>)
+                                        <TableCell align="left" style={{ backgroundColor: '#000030', color: 'white', }}>{col.toUpperCase().replace(/[^a-zA-Z]/g, ' ', /\s/g, ' ', /[0-9]/g, ' ')}</TableCell>)
                                     )
                                 }
-
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -116,4 +105,4 @@ class DataProfiling extends Component {
         );
     }
 }
-export default (DataProfiling);
+export default (CsvReader);

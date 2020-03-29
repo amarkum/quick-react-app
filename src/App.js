@@ -3,9 +3,7 @@ import { Route } from 'react-router-dom';
 import { CssBaseline, withStyles, } from '@material-ui/core';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
-import DataProfiling from './pages/DataProfiling';
-import RuleEngine from './pages/RuleEngine';
-import CoRelation from './pages/CoRelation';
+import CsvReader from './pages/CsvReader';
 
 const styles = theme => ({
   main: {
@@ -26,9 +24,7 @@ const App = ({ classes }) => (
          */
       }
       <Route exact path="/" component={Home} />
-      <Route exact path="/profiling" component={DataProfiling} />
-      <Route exact path="/rule" component={RuleEngine} />
-      <Route exact path="/corelation" component={CoRelation} />
+      <Route exact path="/viewcsv" component={CsvReader} />
     </main>
   </Fragment>
 );

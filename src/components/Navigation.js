@@ -9,19 +9,17 @@ const styles = {
 };
 
 const Navigation = ({ classes }) => (
-  <AppBar position="static">
+  <AppBar position="static" style={{backgroundColor:'#000000', color: 'white',}}>
     <Toolbar>
       <Typography variant="h6" color="inherit">
-        Data Quality Solutions
+        react.util
       </Typography>
       {/**
        * This maps the Text to the URI
        */
       }
       <Button color="inherit" component={Link} to="/">Home</Button>
-      <Button color="inherit" component={Link} to="/profiling">Profiling</Button>
-      <Button color="inherit" component={Link} to="/rule">Rule Engine</Button>
-      <Button color="inherit" component={Link} to="/corelation">CoRelation</Button>
+      <Button color="inherit" component={Link} to="/viewcsv">CSV-VIEW</Button>
       <div className={classes.flex} />
     </Toolbar>
   </AppBar>
