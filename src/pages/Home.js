@@ -17,7 +17,7 @@ class Home extends Component {
           Ever wondered in office, and thought what if you could have a tool which solves your daily problem?
       </Typography><br />
 
-        <Button href="https://github.com/amarkum/react-utility" style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" component="span">
+        <Button href="https://github.com/amarkum/react-utility" style={{ backgroundColor: '#000000', color: 'white' }} variant="contained" color="primary" >
           GitHub &nbsp;<GitHubIcon />
         </Button>
         <br /> <br />
